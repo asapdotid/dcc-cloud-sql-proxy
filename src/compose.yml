@@ -1,0 +1,19 @@
+version: "3.7"
+
+networks:
+  secure:
+    driver: bridge
+    external: true
+
+services:
+  cloudsql-proxy:
+    container_name: cloudsql-proxy
+    image: ${DOCKER_REGISTRY?}/${DOCKER_NAMESPACE?}/${DOCKER_IMAGE?}:${DOCKER_IMAGE_TAG?}
+    command: ${SQL_PROXY_INSTANCE_ID} --credentials-file=/secrets/cloudsql/credentials.json --address 0.0.0.0 --port 3306
+    restart: unless-stopped
+    networks:
+      - secure
+    ports:
+      - 127.0.0.1:${SQL_PROXY_PORT}:3306
+    volumes:
+      - ${SQL_PROXY_CONFIG_DIR}/credentials.json:/secrets/cloudsql/credentials.json

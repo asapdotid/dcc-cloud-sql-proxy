@@ -44,7 +44,7 @@ make init
 make set-env
 ```
 
-Open file on `./src/.env and insert the value
+Open file on `./src/.env` and edit value of variables.
 
 ### Docker Compose Up
 

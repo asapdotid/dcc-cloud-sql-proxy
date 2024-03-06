@@ -10,7 +10,7 @@ The Cloud SQL Auth Proxy is a utility for ensuring secure connections to your Cl
 
 ## To Do
 
--   [x] Connection to database from code [doc](https://github.com/asapdotid/dcc-cloud-sql-proxy#connection)
+-   [x] Connection to database from code [doc](https://github.com/asapdotid/dcc-cloud-sql-proxy?tab=readme-ov-file#connection-using-tcp)
 -   [ ] Add connection using SSL CLient Certificate
 
 ## Enable APIs and Services

@@ -50,11 +50,19 @@ Check `/src/.env`
 
 Running docker compose using Makefile:
 
+### Initial Docker Network
+
+Create docker network `secure`
+
+````bash
+docker network create secure
+```
+
 ### Initial Make
 
 ```bash
 make init
-```
+````
 
 ### Set Docker Compose Environment variables
 

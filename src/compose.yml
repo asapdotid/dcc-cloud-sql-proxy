@@ -9,7 +9,7 @@ services:
   cloudsql-proxy:
     container_name: cloudsql-proxy
     image: ${DOCKER_REGISTRY?}/${DOCKER_NAMESPACE?}/${DOCKER_IMAGE?}:${DOCKER_IMAGE_TAG?}
-    command: ${SQL_PROXY_INSTANCE_ID?} --credentials-file /secrets/cloudsql/credentials.json --address 0.0.0.0 --port ${SQL_HOST_PORT?}
+    command: ${SQL_PROXY_INSTANCE_ID?} --credentials-file /secrets/cloudsql/credentials.json --address 0.0.0.0 --port ${SQL_PROXY_PORT?}
     restart: unless-stopped
     networks:
       - secure

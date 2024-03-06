@@ -54,7 +54,7 @@ Running docker compose using Makefile:
 
 Create docker network `secure`
 
-````bash
+```bash
 docker network create secure
 ```
 
@@ -62,7 +62,7 @@ docker network create secure
 
 ```bash
 make init
-````
+```
 
 ### Set Docker Compose Environment variables
 

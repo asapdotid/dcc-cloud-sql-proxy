@@ -103,4 +103,5 @@ $RECYCLE.BIN/
 
 # Credentials
 src/config/*.json
+src/config/*.bak
 !src/config/.keepfile

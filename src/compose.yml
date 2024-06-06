@@ -3,6 +3,10 @@ networks:
   secure:
     driver: bridge
     external: true
+  proxy:
+    driver: bridge
+    external: true
+
 
 services:
   cloudsql-proxy:
@@ -12,6 +16,7 @@ services:
     restart: unless-stopped
     networks:
       - secure
+      - proxy
     ports:
       - 127.0.0.1:${SQL_HOST_PORT?}:${SQL_PROXY_PORT?}
     volumes:

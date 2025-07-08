@@ -3,20 +3,17 @@ networks:
   secure:
     driver: bridge
     external: true
-  proxy:
-    driver: bridge
-    external: true
-
 
 services:
   cloudsql-proxy:
     container_name: cloudsql-proxy
-    image: ${DOCKER_REGISTRY?}/${DOCKER_NAMESPACE?}/${DOCKER_IMAGE?}:${DOCKER_IMAGE_TAG?}
+    image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:${DOCKER_IMAGE_TAG?}
     command: ${SQL_PROXY_INSTANCE_ID?} --credentials-file /secrets/cloudsql/credentials.json --address 0.0.0.0 --port ${SQL_PROXY_PORT?}
     restart: unless-stopped
+    env_file:
+      - ${CURDIR}/src/.env
     networks:
       - secure
-      - proxy
     ports:
       - 127.0.0.1:${SQL_HOST_PORT?}:${SQL_PROXY_PORT?}
     volumes:

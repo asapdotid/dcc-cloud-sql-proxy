@@ -1,11 +1,9 @@
 # we need a couple of environment variables for docker-compose so we define a make-variable that we can
 # then reference later in the Makefile without having to repeat all the environment variables
 DOCKER_COMPOSE_COMMAND:= \
- DOCKER_REGISTRY=$(DOCKER_REGISTRY) \
- DOCKER_NAMESPACE=$(DOCKER_NAMESPACE) \
- DOCKER_IMAGE=$(DOCKER_IMAGE) \
- DOCKER_IMAGE_TAG=$(DOCKER_IMAGE_TAG) \
- docker compose -p $(DOCKER_PROJECT_NAME) --env-file $(DOCKER_ENV_FILE)
+	CURDIR=$(CURDIR) \
+	DOCKER_IMAGE_TAG=$(DOCKER_IMAGE_TAG) \
+	docker compose -p $(DOCKER_PROJECT_NAME)
 
 DOCKER_COMPOSE?=
 EXECUTE_IN_ANY_CONTAINER?=
